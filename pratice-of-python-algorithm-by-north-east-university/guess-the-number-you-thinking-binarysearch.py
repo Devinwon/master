@@ -1,3 +1,7 @@
+'''
+根据用户的提示大或者小来猜测用户'心想'(0-100范围)的那个数
+'''
+
 secret_num=int(input("Please think of a number between 0 and 100!"))
 low=0
 hight=100

@@ -1,3 +1,7 @@
+'''
+find max midume in three numbers
+'''
+
 a=int(input("输入一个数"))
 b=int(input("输入一个数"))
 if b>=a:

@@ -1,3 +1,9 @@
+'''
+用户输入的10个数进行排序，输出最大，次大数
+没有考虑数据的相同
+'''
+
+
 a=[]
 for h in range(10):
     x=int(input("input your number:"))
