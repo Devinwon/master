@@ -7,6 +7,7 @@
 --我的进度
 --退出系统
 --write to file
+
 '''
 
 from cls.queue import Queue
@@ -16,13 +17,6 @@ import os
 signleTake=50
 queueforMeal=Queue()
 cmd='start'
-'''
-尝试检查目录下是否有当日的文件
-没有就以日期为名创建
-'''
-# def checkDb():
-# 	dateAsdb=strftime("%Y%m%d")
-# 	with
 
 
 '''
