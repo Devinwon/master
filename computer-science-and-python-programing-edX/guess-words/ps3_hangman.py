@@ -23,11 +23,12 @@ def loadWords():
     """
     print("Loading word list from file...") 
     # inFile: file
-    inFile = open(WORDLIST_FILENAME, 'r', 0)
+    inFile = open(WORDLIST_FILENAME, 'r')
     # line: string
     line = inFile.readline()
     # wordlist: list of strings
-    wordlist = string.split(line)
+    # wordlist = string.split(line)
+    wordlist = line.split()
     print("  ", len(wordlist), "words loaded.") 
     return wordlist
 
@@ -155,6 +156,6 @@ def hangman(secretWord):
 # and run this file to test! (hint: you might want to pick your own
 # secretWord while you're testing)
 
-# secretWord = chooseWord(wordlist).lower()
-# hangman(secretWord)
-hangman('lettersGuessed')
+wordlist=loadWords()
+secretWord = chooseWord(wordlist).lower()
+hangman(secretWord)
