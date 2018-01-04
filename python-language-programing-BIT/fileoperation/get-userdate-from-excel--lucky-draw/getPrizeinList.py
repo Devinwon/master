@@ -3,6 +3,7 @@ import random,time
 
 # list can keep the order
 # 奖项类别以及人数设置
+# 简单的人员存储在列表当中
 prize_item=[["三等奖",3],["二等奖",2],["一等奖",1]]
 user=["devin","bob","matina","jesson","hank","frank","green","white","blue","natting","kin","jon"]
 
