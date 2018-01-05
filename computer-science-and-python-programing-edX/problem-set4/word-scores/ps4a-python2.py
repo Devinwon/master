@@ -31,7 +31,7 @@ def loadWords():
     """
     print("Loading word list from file...")
     # inFile: file
-    inFile = open(WORDLIST_FILENAME, 'r')
+    inFile = open(WORDLIST_FILENAME, 'r',0)
     # wordList: list of strings
     wordList = []
     for line in inFile:
@@ -104,8 +104,8 @@ def displayHand(hand):
     """
     for letter in hand.keys():
         for j in range(hand[letter]):
-            print('',letter,end='')       # print all on the same line
-    print()                               # print an empty line
+            print(letter),       # print all on the same line
+    print                               # print an empty line
 
 #
 # Problem #2: Make sure you understand how this function works and what it does!
@@ -261,10 +261,10 @@ def playHand(hand, wordList, n):
     total=0
     left=0
     while calculateHandlen(hand):
-        print("Current Hand: ",end='')
+        print("Current Hand: "),
         displayHand(hand)
-        print("Enter word, or a '.' to indicate that you are finished: ",end='')
-        wd=input()
+        print("Enter word, or a '.' to indicate that you are finished: "),
+        wd=raw_input()
         if wd=='.':
             left=1
             print("Goodbye! Total score: %d points."%total)
@@ -280,10 +280,10 @@ def playHand(hand, wordList, n):
     if left==0:
         print("Run out of letters. Total score: %d points."%total)
 
-# wordList = loadWords()
-# playHand({'h':1, 'i':1, 'c':1, 'z':1, 'm':2, 'a':1}, wordList, 7)
-# playHand({'w':1, 's':1, 't':2, 'a':1, 'o':1, 'f':1}, wordList, 7)
-# playHand({'n':1, 'e':1, 't':1, 'a':1, 'r':1, 'i':2}, wordList, 7)
+wordList = loadWords()
+#playHand({'h':1, 'i':1, 'c':1, 'z':1, 'm':2, 'a':1}, wordList, 7)
+#playHand({'w':1, 's':1, 't':2, 'a':1, 'o':1, 'f':1}, wordList, 7)
+playHand({'n':1, 'e':1, 't':1, 'a':1, 'r':1, 'i':2}, wordList, 7)
 
 #
 # Problem #5: Playing a game
