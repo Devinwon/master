@@ -205,6 +205,8 @@ def calculateHandlen(hand):
     returns: integer
     """
     # TO DO... <-- Remove this comment when you code this function
+    return sum(hand.values())
+
 
 
 
