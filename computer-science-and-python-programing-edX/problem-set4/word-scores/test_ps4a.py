@@ -190,11 +190,11 @@ wordList = loadWords()
 print ("----------------------------------------------------------------------")
 print ("Testing getWordScore...")
 test_getWordScore()
-# print "----------------------------------------------------------------------"
-# print "Testing updateHand..."
-# test_updateHand()
-# print "----------------------------------------------------------------------"
-# print "Testing isValidWord..."
-# test_isValidWord(wordList)
+print ("----------------------------------------------------------------------")
+print ("Testing updateHand...")
+test_updateHand()
+print ("----------------------------------------------------------------------")
+print ("Testing isValidWord...")
+test_isValidWord(wordList)
 # print "----------------------------------------------------------------------"
 # print "All done!"

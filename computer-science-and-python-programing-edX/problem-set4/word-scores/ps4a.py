@@ -87,7 +87,6 @@ def getWordScore(word, n):
     return score
 
 
-
 #
 # Problem #2: Make sure you understand how this function works and what it does!
 #
@@ -124,7 +123,7 @@ def dealHand(n):
     returns: dictionary (string -> int)
     """
     hand={}
-    numVowels = n / 3
+    numVowels = n // 3
     
     for i in range(numVowels):
         x = VOWELS[random.randrange(0,len(VOWELS))]
@@ -156,8 +155,12 @@ def updateHand(hand, word):
     returns: dictionary (string -> int)
     """
     # TO DO ... <-- Remove this comment when you code this function
-
-
+    handcpy=hand.copy()
+    for v in word:
+        num=handcpy.get(v,0)
+        num-=1
+        handcpy[v]=num
+    return handcpy
 
 #
 # Problem #3: Test word validity
@@ -174,7 +177,21 @@ def isValidWord(word, hand, wordList):
     wordList: list of lowercase strings
     """
     # TO DO ... <-- Remove this comment when you code this function
-
+    handcpy=hand.copy()
+    flag=True
+    if word:
+        if word in wordList:
+            for c in word:
+                if handcpy.get(c,0)>0:
+                    handcpy[c]-=1
+                else:
+                    flag=False
+                    break
+        else:
+            flag=False
+    else:
+        flag=False    
+    return flag
 
 #
 # Problem #4: Playing a hand
@@ -268,6 +285,6 @@ def playGame(wordList):
 #
 # Build data structures used for entire session and play game
 #
-if __name__ == '__main__':
-    wordList = loadWords()
-    playGame(wordList)
+# if __name__ == '__main__':
+#     wordList = loadWords()
+#     playGame(wordList)
