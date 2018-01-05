@@ -267,7 +267,8 @@ def playHand(hand, wordList, n):
         wd=input()
         if wd=='.':
             left=1
-            print("Goodbye! Total score: %d points."%total)
+            # 注意是否要加换行
+            print("Goodbye! Total score: %d points.\n"%total)
             break
         else:
             if isValidWord(wd, hand, wordList):
@@ -302,14 +303,27 @@ def playGame(wordList):
     2) When done playing the hand, repeat from step 1    
     """
     # TO DO ... <-- Remove this comment when you code this function
-    print ("playGame not yet implemented.") # <-- Remove this line when you code the function
-   
-
-
+    # print ("playGame not yet implemented.") # <-- Remove this line when you code the function
+    last=""
+    while True:
+        print("Enter n to deal a new hand, r to replay the last hand, or e to end game: ",end='')
+        cmd=input()
+        if cmd=='n':
+            hand=dealHand(HAND_SIZE)
+            last=hand.copy()
+            playHand(hand,wordList,HAND_SIZE)
+        elif cmd=='r':
+            if last=="":
+                print("You have not played a hand yet. Please play a new hand first!\n")
+            else:playHand(last,wordList,HAND_SIZE)
+        elif cmd=='e':
+            break
+        else:
+            print("Invalid command.")
 
 #
 # Build data structures used for entire session and play game
 #
-# if __name__ == '__main__':
-#     wordList = loadWords()
-#     playGame(wordList)
+if __name__ == '__main__':
+    wordList = loadWords()
+    playGame(wordList)
