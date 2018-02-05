@@ -51,5 +51,27 @@ for j in range(1,len(line2_lst),2):
 			break
 	if not exitorNot:
 		rel.append({line2_lst[j]:line2_lst[j+1]})
-print(rel)
-rel.sort()
+# print(rel)
+# 字典之间是无序的
+keys=[]
+for v in rel:
+	for k in v.keys():
+		keys.append(k)
+keys=sorted(keys,reverse=True)
+# print(keys)
+
+print(len(keys),'',end='')
+
+for k in keys[:-1]:
+	for v in rel:
+		# print(v)
+		if k in v:
+			print(k,v[k],'',end='')
+			break
+print(keys[-1],'',end='')
+for v in rel:
+	if keys[-1] in v:
+		print(v[keys[-1]])
+
+
+
