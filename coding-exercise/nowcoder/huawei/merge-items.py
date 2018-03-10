@@ -29,12 +29,8 @@ while  True:
 		cnt=int(input())
 		rel_dict={}
 		while cnt:
-			k,v=input().split()
-			k,v=int(k),int(v)
-			if rel_dict.get(k) is None:
-				rel_dict[k]=v
-			else:
-				rel_dict[k]+=v
+			k,v=map(int,input().split())
+			rel_dict[k]=v+rel_dict.get(k,0)
 			cnt-=1
 
 		# print(sorted(rel_dict))
@@ -63,3 +59,4 @@ while True:
         break
 '''
 # 多使用迭代，map的用法
+# 
