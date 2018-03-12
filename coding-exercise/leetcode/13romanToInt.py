@@ -28,7 +28,6 @@ class Solution:
 			elif len(s)==1:
 				intnumber+=roma_dict[s[0]]
 				s=s[1:]
-
 		return intnumber
 
 s=Solution()

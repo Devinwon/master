@@ -19,7 +19,7 @@ def bar(multiple):
 print(bar(2)(3))
 '''
 
-
+'''
 def dec(f):
 	n = 3
 	def wrapper(*args,**kw):
@@ -33,3 +33,17 @@ return n * 2
 
 foo(2)=2(n)*2*3(n)=12
 foo(3)=3(n)*2*3(n)=18
+'''
+"""
+:type nums: List[int]
+:rtype: int
+"""
+class Solution:
+	def removeDuplicates(self, nums):
+		nums=list(set(nums))
+		print(nums)
+		return len(set(nums))
+
+s=Solution()
+
+print(s.removeDuplicates([1,1,2]))
