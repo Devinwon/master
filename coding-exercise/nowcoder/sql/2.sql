@@ -39,3 +39,4 @@ M
 
 */
 
+select * from employees order by hire_date desc limit 1 offset 2;
