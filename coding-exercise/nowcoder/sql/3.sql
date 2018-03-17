@@ -30,7 +30,9 @@ dept_no
 from 语法错误
 */
 
-select * from salaries,dept_no from dept_manager where salaries.emp_no==dept_manager.emp_no order by dept_no;
+select salaries.*,dept_manager.dept_no from salaries, dept_manager 
+where salaries.emp_no==dept_manager.emp_no 
+and salaries.to_date='9999-01-01' and dept_manager.to_date='9999-01-01' ;
 
 
 

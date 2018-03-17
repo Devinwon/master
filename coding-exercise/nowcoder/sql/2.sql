@@ -36,6 +36,12 @@ M
 
 1989-09-12
 
+LIMIT m,n : 表示从第m+1条开始，取n条数据； 
+LIMIT n ： 表示从第0条开始，取n条数据，是limit(0,n)的缩写。 
+本题limit 0,1 表示从第（0+1）条数据开始，取一条数据，即取出最晚入职员工。
+
+select * from employees order by hire_date desc limit 2,1;
+或者
 
 */
 
