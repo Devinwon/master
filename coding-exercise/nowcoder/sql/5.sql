@@ -37,8 +37,3 @@ RIGHT JOIN 会读取右边数据表的全部数据，即便左边表无对应数
 select employees.last_name,employees.first_name,dept_emp.dept_no
 from employees
 left join dept_emp on employees.emp_no=dept_emp.emp_no;
-
-
-select employees.last_name,employees.first_name,dept_emp.dept_no
-from dept_emp
-right join employees on employees.emp_no=dept_emp.emp_no;
