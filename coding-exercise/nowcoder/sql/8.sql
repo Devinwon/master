@@ -13,6 +13,9 @@ PRIMARY KEY (`emp_no`,`from_date`));
 
 
 
+去重
+distinct 
+group by 
 
 */
 
