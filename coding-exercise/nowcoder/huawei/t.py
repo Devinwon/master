@@ -1,6 +1,5 @@
 
 '''
-test srate
 from  itertools import combinations
 for val in combinations([1,2,3],2):
   print(val)
