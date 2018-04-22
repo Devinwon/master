@@ -38,6 +38,10 @@ def simpleArraySum(ar):
     #
     # Write your code here.
     #
+    s=0
+    for v in ar:
+    	s+=v
+    return s
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
