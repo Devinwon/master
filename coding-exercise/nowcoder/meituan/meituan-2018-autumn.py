@@ -1,3 +1,6 @@
+'''
+running with python2
+'''
 def cnt_bit(n):
 	t=10
 	cnt=0
