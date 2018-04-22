@@ -21,9 +21,10 @@ def plusMinus(arr):
         negative_fraction+=1
       else:
         zero_fraction+=1  
-    print("{:.6f}".format(postive_fraction/len(arr)))
-    print("{:.6f}".format(negative_fraction/len(arr)))
-    print("{:.6f}".format(zero_fraction/len(arr)))
+    print("{:.6f}\n{:.6f}\n{:.6f}".format(postive_fraction/len(arr),negative_fraction/len(arr),zero_fraction/len(arr)))
+    # print("{:.6f}".format(postive_fraction/len(arr)))
+    # print("{:.6f}".format(negative_fraction/len(arr)))
+    # print("{:.6f}".format(zero_fraction/len(arr)))
 
 if __name__ == '__main__':
     n = int(input())
