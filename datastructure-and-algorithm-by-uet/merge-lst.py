@@ -4,8 +4,7 @@ merge list
 import random
 la=[int(random.random()*100) for _ in range(5)]
 lb=[int(random.random()*100) for _ in range(5)]
-print(la)
-print(lb)
+
 
 
 def mergeLst(la,lb):
@@ -19,4 +18,28 @@ def mergeLstMod(la,lb):
 	for v in lb:
 		lc.append(v)
 	return lc
-print(mergeLst(la,lb))
+
+def mergeLstSorted(la,lb):
+	# 保留原来的数组,有序合并
+	la.sort()
+	lb.sort()
+	print(la)
+	print(lb)
+	# 较少的数据插入
+	rel=la[:] if len(la)>=len(lb) else lb[:]
+	toinser=la[:] if len(la)<len(lb) else lb[:]
+	for v in toinser:
+		for i in range(len(rel)-1):
+			if v<rel[0]:
+				rel.insert(0,v)
+				break
+			elif v>rel[-1]:
+				rel.append(v)
+				break
+			else:
+				if rel[i]<=v<=rel[i+1]:
+					rel.insert(i+1,v)
+					break
+	return rel
+
+print(mergeLstSorted(la,lb))
