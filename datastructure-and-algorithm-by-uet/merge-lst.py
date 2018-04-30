@@ -5,8 +5,6 @@ import random
 la=[int(random.random()*100) for _ in range(5)]
 lb=[int(random.random()*100) for _ in range(5)]
 
-
-
 def mergeLst(la,lb):
 	# 注意extend将la改变了
 	la.extend(lb)
