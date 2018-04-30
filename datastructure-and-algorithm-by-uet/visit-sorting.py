@@ -14,4 +14,5 @@ sortLst=sorted(rel.items(), key=itemgetter(1), reverse=True)
 # print(sortLst)
 print("1-99之间的数字随机访问频次/1000")
 for v in sortLst:
-	print("{:2}".format(str(sortLst.index(v)+1)), "{:2}".format(str(v[0])),v[1]//2*'-')
+	print("{:0>2}".format(str(sortLst.index(v)+1)), "{:0>2}".format(str(v[0])),v[1]//2*'-',v[1])
+	# 右对齐,0填充
