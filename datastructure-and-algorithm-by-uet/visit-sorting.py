@@ -1,5 +1,5 @@
 import random
-from operator import itemgetter, attrgetter
+from operator import itemgetter
 la=[int(random.random()*100) for _ in range(20)]
 # print(la)
 rel={}
