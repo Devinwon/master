@@ -12,10 +12,9 @@ def swap_case(s):
 			rel+=v
 	return rel
 
-# if __name__ == '__main__':
-# 	s = input()
-# 	result = swap_case(s)
-# 	print(result)
+if __name__ == '__main__':
+	s = input()
+	result = swap_case(s)
+	print(result)
 
 
-print(swap_case('wwW.CCnu]-'))
