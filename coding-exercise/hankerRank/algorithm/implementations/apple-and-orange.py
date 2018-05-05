@@ -14,6 +14,16 @@ def countApplesAndOranges(s, t, a, b, apples, oranges):
     #
     # Write your code here.
     #
+    # apple distance
+    appleAmount=0
+    orangeAmount=0
+    for d in apples:
+    	if s<=a+d<=t:
+    		appleAmount+=1
+    for d in oranges:
+    	if s<=b+d<=t:
+    		orangeAmount+=1
+   	print("{0}\n{1}".format(appleAmount,orangeAmount))
 
 if __name__ == '__main__':
     st = input().split()
