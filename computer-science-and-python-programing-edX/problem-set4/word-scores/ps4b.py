@@ -41,7 +41,23 @@ def compChooseWord(hand, wordList, n):
 
 
     # return the best word you found.
-
+    maxScore=0
+    found=True
+    for word in wordList:
+        handcpy=hand.copy()
+        bestWord=""
+        for c in word:
+            if handcpy.get(c,0):
+                # wordlist中的单词字符在Hand中
+                handcpy[c]-=1
+                bestWord+=c
+            else:
+                # wordlist中的单词与Hand不匹配
+                found=False
+                break
+        if found:
+            maxScore=getWordScore(bestWord,n) if getWordScore(bestWord,n)>maxScore else maxScore
+    return bestWord
 
 #
 # Problem #7: Computer plays a hand
@@ -96,14 +112,13 @@ def playGame(wordList):
     wordList: list (string)
     """
     # TO DO... <-- Remove this comment when you code this function
-    print "playGame not yet implemented." # <-- Remove this when you code this function
-
+    # print "playGame not yet implemented." # <-- Remove this when you code this function
         
 #
 # Build data structures used for entire session and play game
 #
-if __name__ == '__main__':
-    wordList = loadWords()
-    playGame(wordList)
+# if __name__ == '__main__':
+#     wordList = loadWords()
+    # playGame(wordList)
 
 
