@@ -36,7 +36,9 @@ def loadWords():
     wordList = []
     for line in inFile:
         wordList.append(line.strip().lower())
-    print("  ", len(wordList), "words loaded.")
+    # in python2,comment below 
+    print "  {} words loaded.".format(len(wordList))
+    # print "  ", len(wordList), "words loaded."
     return wordList
 
 def getFrequencyDict(sequence):
@@ -104,8 +106,9 @@ def displayHand(hand):
     """
     for letter in hand.keys():
         for j in range(hand[letter]):
-            print('',letter,end='')       # print all on the same line
-    print()                               # print an empty line
+            # print('',letter,end='')       # print all on the same line
+            print letter,       # print all on the same line
+    print                                # print an empty line
 
 #
 # Problem #2: Make sure you understand how this function works and what it does!
@@ -132,7 +135,7 @@ def dealHand(n):
     for i in range(numVowels, n):    
         x = CONSONANTS[random.randrange(0,len(CONSONANTS))]
         hand[x] = hand.get(x, 0) + 1
-        
+    hand={'a':1, 's':1 ,'r':1 ,'e':1, 't':3}  
     return hand
 
 #
@@ -261,13 +264,14 @@ def playHand(hand, wordList, n):
     total=0
     left=0
     while calculateHandlen(hand):
-        print("Current Hand: ",end='')
+        # print("Current Hand: ",end='')
+        print "Current Hand:",
         displayHand(hand)
-        print("Enter word, or a '.' to indicate that you are finished: ",end='')
-        wd=input()
+        # print("Enter word, or a '.' to indicate that you are finished: ",end='')
+        print "Enter word, or a '.' to indicate that you are finished:",
+        wd=raw_input()
         if wd=='.':
             left=1
-            # 注意是否要加换行
             print("Goodbye! Total score: %d points.\n"%total)
             break
         else:
@@ -280,6 +284,7 @@ def playHand(hand, wordList, n):
                 print("Invalid word, please try again.\n")
     if left==0:
         print("Run out of letters. Total score: %d points."%total)
+        print 
 
 # wordList = loadWords()
 # playHand({'h':1, 'i':1, 'c':1, 'z':1, 'm':2, 'a':1}, wordList, 7)
@@ -306,7 +311,7 @@ def playGame(wordList):
     # print ("playGame not yet implemented.") # <-- Remove this line when you code the function
     last=""
     while True:
-        print("Enter n to deal a new hand, r to replay the last hand, or e to end game: ",end='')
+        print("Enter n to deal a new hand, r to replay the last hand, or e to end game: ",)
         cmd=input()
         if cmd=='n':
             hand=dealHand(HAND_SIZE)
