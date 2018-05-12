@@ -1,6 +1,6 @@
 from ps4a import *
 import time
-
+#-*- coding:utf-8 -*-
 
 #
 #
@@ -43,24 +43,20 @@ def compChooseWord(hand, wordList, n):
     # return the best word you found.
     maxScore=0
     bestWord=""
-    temp=''
     for word in wordList:
         found=True
         handcpy=hand.copy()
         if len(word)<=calculateHandlen(handcpy):
             for c in word:
                 if handcpy.get(c,0):
-                    num=handcpy.get(c,0)
-                    num-=1
-                    handcpy[c]=num
-                    temp+=c
+                    handcpy[c]-=1
                 else:
                     found=False
                     break
             if found:
-                if getWordScore(temp,n)>maxScore:
-                    bestWord=temp
-                    maxScore=getWordScore(temp,n)
+                if getWordScore(word,n)>maxScore:
+                    bestWord=word
+                    maxScore=getWordScore(word,n)
     return bestWord
 
 #
@@ -102,6 +98,7 @@ def compPlayHand(hand, wordList, n):
            break 
 
     print("Total score: {} points.".format(total))
+
     
 #
 # Problem #8: Playing a game
@@ -133,15 +130,16 @@ def playGame(wordList):
     """
     # TO DO... <-- Remove this comment when you code this function
     # print "playGame not yet implemented." # <-- Remove this when you code this function
-        
+    pass
 #
 # Build data structures used for entire session and play game
 #
 if __name__ == '__main__':
     wordList = loadWords()
     hand={'a': 1, 'p': 2, 's': 1, 'e': 1, 'l': 1}
-    print("final",compChooseWord(hand, wordList, 6))
-    # compPlayHand(hand, wordList, 6)
+    # compChooseWord(hand, wordList, 6)
+    # print("final",compChooseWord(hand, wordList, 6))
+    compPlayHand(hand, wordList, 6)
 
     # playGame(wordList)
 
