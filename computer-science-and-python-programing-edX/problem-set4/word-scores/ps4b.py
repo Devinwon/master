@@ -99,21 +99,18 @@ def compPlayHand(hand, wordList, n):
     # TO DO ... <-- Remove this comment when you code this function
     total=0
     while calculateHandlen(hand):
-        print "Current Hand:",
+        print "Current Hand: ",
         displayHand(hand)
         bestWord=compChooseWord(hand, wordList, n)
         if bestWord:
             score=getWordScore(bestWord,n)
             total+=score
             hand=updateHand(hand, bestWord)
-            print '"%s" earned %d points. Total: %d points'%(bestWord,score,total)
+            print '"%s" earned %d points. Total: %d points\n'%(bestWord,score,total)
             # print '"{}" earned {} points. Total: {} points'.format(bestWord,score,total)
         else:
            break 
-        if not calculateHandlen(hand) :
-            print 
-    print "Total score: {} points.".format(total)
-    print
+    print "Total score: {} points.\n".format(total)
 
     
 #
@@ -147,11 +144,11 @@ def playGame(wordList):
     """
     # TO DO... <-- Remove this comment when you code this function
     # print "playGame not yet implemented." # <-- Remove this when you code this function
-    last=''
+    last={}
     while True:
         print "Enter n to deal a new hand, r to replay the last hand, or e to end game:",
         cmd=raw_input()
-        if cmd.lower()=='n' or cmd.lower()=='r':
+        if cmd.lower()=='n' or (cmd.lower()=='r' and last):
             print 
             while True:
                 print "Enter u to have yourself play, c to have the computer play:",
@@ -177,15 +174,16 @@ def playGame(wordList):
                         compPlayHand(hand, wordList, HAND_SIZE)
                         break
                 else:
-                    print "Invalid command."
-                    print 
+                    print "Invalid command.\n"
                 
 
         elif cmd.lower()=='e':
+            print
             break
+        elif cmd.lower()=='r' and not last:
+            print "You have not played a hand yet. Please play a new hand first!"
         else:
-            print "Invalid command."
-            print 
+            print "Invalid command.\n"
 
 
 

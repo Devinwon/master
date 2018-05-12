@@ -10,7 +10,7 @@ import string
 
 VOWELS = 'aeiou'
 CONSONANTS = 'bcdfghjklmnpqrstvwxyz'
-HAND_SIZE = 7
+HAND_SIZE = 10
 
 SCRABBLE_LETTER_VALUES = {
     'a': 1, 'b': 3, 'c': 3, 'd': 2, 'e': 1, 'f': 4, 'g': 2, 'h': 4, 'i': 1, 'j': 8, 'k': 5, 'l': 1, 'm': 3, 'n': 1, 'o': 1, 'p': 3, 'q': 10, 'r': 1, 's': 1, 't': 1, 'u': 1, 'v': 4, 'w': 4, 'x': 8, 'y': 4, 'z': 10
@@ -135,7 +135,7 @@ def dealHand(n):
     for i in range(numVowels, n):    
         x = CONSONANTS[random.randrange(0,len(CONSONANTS))]
         hand[x] = hand.get(x, 0) + 1
-    hand={'a':1, 's':1 ,'r':1 ,'e':1, 't':3}  
+    # hand={'a':1, 's':1 ,'r':1 ,'e':1, 't':3}  
     return hand
 
 #
@@ -283,8 +283,7 @@ def playHand(hand, wordList, n):
             else:
                 print("Invalid word, please try again.\n")
     if left==0:
-        print("Run out of letters. Total score: %d points."%total)
-        print 
+        print("Run out of letters. Total score: %d points.\n"%total)
 
 # wordList = loadWords()
 # playHand({'h':1, 'i':1, 'c':1, 'z':1, 'm':2, 'a':1}, wordList, 7)
@@ -309,7 +308,7 @@ def playGame(wordList):
     """
     # TO DO ... <-- Remove this comment when you code this function
     # print ("playGame not yet implemented.") # <-- Remove this line when you code the function
-    last=""
+    last={}
     while True:
         print("Enter n to deal a new hand, r to replay the last hand, or e to end game: ",)
         cmd=input()
@@ -318,7 +317,7 @@ def playGame(wordList):
             last=hand.copy()
             playHand(hand,wordList,HAND_SIZE)
         elif cmd=='r':
-            if last=="":
+            if last=={}:
                 print("You have not played a hand yet. Please play a new hand first!\n")
             else:playHand(last,wordList,HAND_SIZE)
         elif cmd=='e':
