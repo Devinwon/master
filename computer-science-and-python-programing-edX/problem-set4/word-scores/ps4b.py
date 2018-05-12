@@ -42,21 +42,25 @@ def compChooseWord(hand, wordList, n):
 
     # return the best word you found.
     maxScore=0
-    found=True
+    bestWord=""
+    temp=''
     for word in wordList:
+        found=True
         handcpy=hand.copy()
-        bestWord=""
-        for c in word:
-            if handcpy.get(c,0):
-                # wordlist中的单词字符在Hand中
-                handcpy[c]-=1
-                bestWord+=c
-            else:
-                # wordlist中的单词与Hand不匹配
-                found=False
-                break
-        if found:
-            maxScore=getWordScore(bestWord,n) if getWordScore(bestWord,n)>maxScore else maxScore
+        if len(word)<=calculateHandlen(handcpy):
+            for c in word:
+                if handcpy.get(c,0):
+                    num=handcpy.get(c,0)
+                    num-=1
+                    handcpy[c]=num
+                    temp+=c
+                else:
+                    found=False
+                    break
+            if found:
+                if getWordScore(temp,n)>maxScore:
+                    bestWord=temp
+                    maxScore=getWordScore(temp,n)
     return bestWord
 
 #
@@ -82,6 +86,22 @@ def compPlayHand(hand, wordList, n):
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     """
     # TO DO ... <-- Remove this comment when you code this function
+    total=0
+    while calculateHandlen(hand):
+        print("Current Hand: ",end='')
+        displayHand(hand)
+        bestWord=compChooseWord(hand, wordList, n)
+        # print(bestWord,'---bbb')
+        if bestWord:
+            score=getWordScore(bestWord,n)
+            total+=score
+            # hand renew
+            hand=updateHand(hand, bestWord)
+            print("{} earned {} points. Total: {} points".format(bestWord,score,total))
+        else:
+           break 
+
+    print("Total score: {} points.".format(total))
     
 #
 # Problem #8: Playing a game
@@ -117,8 +137,12 @@ def playGame(wordList):
 #
 # Build data structures used for entire session and play game
 #
-# if __name__ == '__main__':
-#     wordList = loadWords()
+if __name__ == '__main__':
+    wordList = loadWords()
+    hand={'a': 1, 'p': 2, 's': 1, 'e': 1, 'l': 1}
+    print("final",compChooseWord(hand, wordList, 6))
+    # compPlayHand(hand, wordList, 6)
+
     # playGame(wordList)
 
 
