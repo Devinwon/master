@@ -36,6 +36,24 @@ n 行，每行一个非负整数，表示排序后的序列。
 为了帮助大家完成题目，
 我们提供了只包含了输入输出功能的程序模板，也提供了含有算法的大部分实现细节的程序。
 """
+class Stack():
+	def __init__(self, _element):
+	  self._element=[]
+
+	def push(self,v):
+		self._element.append(v)
+
+	def pop(self):
+		if self._element:
+			t=self._element[-1]
+			
+			return t
+
+	def top(self):
+		if self._element:
+			delete 
+			return self._element[-1]
+
 length=int(raw_input())
 lst=list(map(int,raw_input().split(' ')))
 print lst
