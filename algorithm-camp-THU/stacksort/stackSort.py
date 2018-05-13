@@ -36,24 +36,36 @@ n 行，每行一个非负整数，表示排序后的序列。
 为了帮助大家完成题目，
 我们提供了只包含了输入输出功能的程序模板，也提供了含有算法的大部分实现细节的程序。
 """
+class StackUnderflow(ValueError):
+	pass
+
 class Stack():
-	def __init__(self, _element):
+	_element=[]
+	def __init__(self, ):
 	  self._element=[]
 
 	def push(self,v):
 		self._element.append(v)
 
 	def pop(self):
-		if self._element:
-			t=self._element[-1]
-			
-			return t
+		if self._element==[]:
+			raise StackUnderflow("in pop()")
+		return self._element.pop()
 
 	def top(self):
-		if self._element:
-			delete 
-			return self._element[-1]
+		if self._element==[]:
+			raise StackUnderflow("in top()")
+		return self._element[-1]
+
+	def is_empty(self):
+		return self._element==[]
 
 length=int(raw_input())
 lst=list(map(int,raw_input().split(' ')))
-print lst
+st=Stack()
+for v in lst:
+	st.push(v)
+
+while not st.is_empty():
+	print(st.pop())
+
