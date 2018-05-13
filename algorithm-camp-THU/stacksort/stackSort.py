@@ -83,12 +83,8 @@ while not st.is_empty():
 				st.push(stSorted.pop())
 			# 这里需要比较弹出首元素后 stSorted.top()与temp的大小关系
 
-
-
-
 rel=[]
 while not stSorted.is_empty():
-	# print(stSorted.pop())
 	rel.append(str(stSorted.pop()))
 print '\n'.join(rel[::-1])
 
