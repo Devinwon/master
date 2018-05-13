@@ -66,6 +66,30 @@ st=Stack()
 for v in lst:
 	st.push(v)
 
+stSorted=Stack()
+
 while not st.is_empty():
-	print(st.pop())
+	temp=st.pop()
+	if stSorted.is_empty():
+		# 首次为空直接插入
+		stSorted.push(temp)
+	else:
+		while True:
+			# 不为空,进行循环比较
+			if stSorted.is_empty() or stSorted.top()<=temp:
+				stSorted.push(temp)
+				break
+			else:
+				st.push(stSorted.pop())
+			# 这里需要比较弹出首元素后 stSorted.top()与temp的大小关系
+
+
+
+
+rel=[]
+while not stSorted.is_empty():
+	# print(stSorted.pop())
+	rel.append(str(stSorted.pop()))
+print '\n'.join(rel[::-1])
+
 
