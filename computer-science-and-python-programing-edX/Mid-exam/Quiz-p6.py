@@ -18,3 +18,6 @@ def laceStringsRecur(s1, s2):
             return s1[0]+s2[0]+laceStringsRecur(s1[1:],s2[1:])
             
     return helpLaceStrings(s1, s2, '')
+print laceStringsRecur('','123')
+print laceStringsRecur('heo','')
+print laceStringsRecur('heo','123456')
