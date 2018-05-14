@@ -1,4 +1,4 @@
-
+# -*- coding: UTF-8 -*-
 """
 描述
 实现一个栈，完成以下功能：
@@ -20,7 +20,6 @@
 输出
 将所有操作2和操作3输出，一行一个。
 """
-# -*- coding: UTF-8 -*-
 class StackUnderflow(ValueError):
 	pass
 
@@ -45,10 +44,24 @@ class Stack():
 	def is_empty(self):
 		return self._element==[]
 
+# 记得还原原先的栈
+def getValueByIndex(st,index):
+	sTemp=Stack()
+	while not st.is_empty():
+		sTemp.push(st.pop()) 
+	for i in range(index):
+		st.push(sTemp.pop()) 
+	rel=st.top()
+	# 身下 的元素进入栈,还原
+	while not sTemp.is_empty() :
+		st.push(sTemp.pop())
+	return rel
+
+
 count=int(raw_input())
 st=Stack()
 for _ in range(count):
-	cmdStr=raw_input():
+	cmdStr=raw_input()
 	if cmdStr[0]=='1':
 		st.push(cmdStr[2:])
 	elif cmdStr[0]=='2':
@@ -56,9 +69,5 @@ for _ in range(count):
 	elif cmdStr[0]=='3':
 		# 只是询问位置元素,并打印,
 		loc=int(cmdStr[2:])
-		sTemp=Stack()
-		# 临时存储
-
-
-
+		print getValueByIndex(st,loc)
 
