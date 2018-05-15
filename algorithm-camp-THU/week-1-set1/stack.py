@@ -22,6 +22,12 @@
 
 视图将查找索引存储起来,一次性检索,提高效率
 
+检索顺序:1 3 2 3 4
+检索排序:[1,2,3,3,4]
+记录他们出现的值
+{1:value,2:value,3:value,4:value}
+
+
 """
 
 # define exception
@@ -50,32 +56,50 @@ class Stack():
 	def empty(self):
 		return self._element==[]
 
-# 记得还原原先的栈
-def getValueByIndex(st,index,length):
-	sTemp=Stack()
-	for _ in xrange(length-index):
-		sTemp.push(st.pop()) 
-	rel=st.top()
-	while not sTemp.empty():
-		st.push(sTemp.pop()) 
-	return rel
+def getValueByIndex(st,locLst,length):
+	lsTemp=[]
+
+	# 栈中剩下不弹出的元素数量
+	leftInst=min(locLst)-1
+	for _ in xrange(length-leftInst):
+		lsTemp.append(st.pop())
+	for l in locLst:
+		print lsTemp[leftInst-l]
+
+	while lsTemp:
+		st.push(lsTemp.pop())
 
 
 count=int(raw_input())
 st=Stack()
 length=0
-# locLst=[]
+locLst=[]
 for _ in xrange(count):
 	cmdStr=raw_input()
+	# in stack
 	if cmdStr[0]=='1':
 		st.push(cmdStr[2:])
 		length+=1
+
+	# out stack
 	elif cmdStr[0]=='2':
-		print st.pop()
-		length-=1
+		if locLst==[]:
+			print st.pop()
+			length-=1
+		else:
+			getValueByIndex(st,locLst,length)
+			locLst=[]
+			print st.pop()
+			length-=1
+
+
+	# print value in loc		
 	elif cmdStr[0]=='3':
-		# 只是询问位置元素,并打印,
 		loc=int(cmdStr[2:])
-		# locLst.append(loc)
-		print getValueByIndex(st,loc,length)
+		locLst.append(loc)
+
+if locLst:
+	getValueByIndex(st,locLst,length)
+	locLst=[]
+
 
