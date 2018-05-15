@@ -19,10 +19,16 @@
 若为数字3，则接下来有一个整数Y，表示询问栈中位置Y是谁（保证位置Y合法），并输出名字。
 输出
 将所有操作2和操作3输出，一行一个。
+
+视图将查找索引存储起来,一次性检索,提高效率
+
 """
+
+# define exception
 class StackUnderflow(ValueError):
 	pass
 
+# define stack()
 class Stack():
 	_element=[]
 	def __init__(self, ):
@@ -41,33 +47,35 @@ class Stack():
 			raise StackUnderflow("in top()")
 		return self._element[-1]
 
-	def is_empty(self):
+	def empty(self):
 		return self._element==[]
 
 # 记得还原原先的栈
-def getValueByIndex(st,index):
+def getValueByIndex(st,index,length):
 	sTemp=Stack()
-	while not st.is_empty():
+	for _ in xrange(length-index):
 		sTemp.push(st.pop()) 
-	for i in range(index):
-		st.push(sTemp.pop()) 
 	rel=st.top()
-	# 身下 的元素进入栈,还原
-	while not sTemp.is_empty() :
-		st.push(sTemp.pop())
+	while not sTemp.empty():
+		st.push(sTemp.pop()) 
 	return rel
 
 
 count=int(raw_input())
 st=Stack()
-for _ in range(count):
+length=0
+# locLst=[]
+for _ in xrange(count):
 	cmdStr=raw_input()
 	if cmdStr[0]=='1':
 		st.push(cmdStr[2:])
+		length+=1
 	elif cmdStr[0]=='2':
 		print st.pop()
+		length-=1
 	elif cmdStr[0]=='3':
 		# 只是询问位置元素,并打印,
 		loc=int(cmdStr[2:])
-		print getValueByIndex(st,loc)
+		# locLst.append(loc)
+		print getValueByIndex(st,loc,length)
 
