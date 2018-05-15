@@ -29,9 +29,7 @@ put()
 get() 
 
 qsize() 
-
 """
-# from Queue import Queue
 
 class Queue():
 	_element=[]
@@ -41,6 +39,9 @@ class Queue():
 	def put(self,v):
 		self._element.append(v)
 
+	def putLeft(self,v):
+		self._element.insert(0,v)
+
 	def get(self):
 		# remove and  return  elemnt in head
 		if self._element==[]:
@@ -49,20 +50,40 @@ class Queue():
 		self._element=self._element[1:]
 		return head
 
+	def getRight(self):
+		if self._element==[]:
+			raise StackUnderflow("in pop()")
+		return self._element.pop()
+
 	def qsize(self):
 		return len(self._element)
 
 
 def printValueByIndex(q,locLst):
 	lsTemp=[]
-	for _ in xrange(q.qsize()):
-		lsTemp.append(q.get())
 
-	for l in locLst:
-		print lsTemp[l-1]
+	if max(locLst)<q.qsize()/2:
+		for _ in xrange(max(locLst)):
+			lsTemp.append(q.get())
 
-	for v in lsTemp:
-		q.put(v)
+		for loc in locLst:
+			print lsTemp[loc-1]
+
+		while lsTemp:
+			q.putLeft(lsTemp.pop())
+
+	# elif min(locLst)>=q.qsize()/2 :
+	else:
+		gap=min(locLst)
+		for _ in xrange(gap,q.qsize()+1):
+			lsTemp.append(q.getRight())
+
+		for v in locLst:
+			print lsTemp[-(v-gap+1)]
+
+		while lsTemp:
+			q.put(lsTemp.pop())
+
 
 que=Queue()
 count=int(raw_input())
