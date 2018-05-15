@@ -20,13 +20,15 @@
 输出
 将所有操作2和操作3输出，一行一个。
 
-视图将查找索引存储起来,一次性检索,提高效率
+-----解题说明:
 
-检索顺序:1 3 2 3 4
-检索排序:[1,2,3,3,4]
-记录他们出现的值
-{1:value,2:value,3:value,4:value}
+将需要检索的位置存储在列表locLst中,在下次弹出前,
+检查列表不为空的情况下,将栈中部分元素(取决于最小检索位置)弹出至临时列表中lsTemp,
+然后通过临时列表索引访问需要检索的的元素,这样迅速,不然会超时,最后清空检索列表
 
+所有操作命令执行完毕后,检查locLst不为空下,执行上述步骤,打印检索结果
+
+-----
 
 """
 
@@ -56,7 +58,7 @@ class Stack():
 	def empty(self):
 		return self._element==[]
 
-def getValueByIndex(st,locLst,length):
+def printValueByIndex(st,locLst,length):
 	lsTemp=[]
 
 	# 栈中剩下不弹出的元素数量
@@ -87,19 +89,21 @@ for _ in xrange(count):
 			print st.pop()
 			length-=1
 		else:
-			getValueByIndex(st,locLst,length)
+			# process before strive
+			printValueByIndex(st,locLst,length)
 			locLst=[]
+
+			# process prompt command
 			print st.pop()
 			length-=1
 
-
-	# print value in loc		
+	# store loc in locLst		
 	elif cmdStr[0]=='3':
 		loc=int(cmdStr[2:])
 		locLst.append(loc)
 
 if locLst:
-	getValueByIndex(st,locLst,length)
+	printValueByIndex(st,locLst,length)
 	locLst=[]
 
 
