@@ -29,6 +29,8 @@ put()
 get() 
 
 qsize() 
+
+分左右半区域查找,以免超时
 """
 
 class Queue():
