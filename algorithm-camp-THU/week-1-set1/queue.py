@@ -31,7 +31,27 @@ get()
 qsize() 
 
 """
-from Queue import Queue
+# from Queue import Queue
+
+class Queue():
+	_element=[]
+	def __init__(self, ):
+	  self._element=[]
+
+	def put(self,v):
+		self._element.append(v)
+
+	def get(self):
+		# remove and  return  elemnt in head
+		if self._element==[]:
+			raise StackUnderflow("in get()")
+		head=self._element[0]
+		self._element=self._element[1:]
+		return head
+
+	def qsize(self):
+		return len(self._element)
+
 
 def printValueByIndex(q,locLst):
 	lsTemp=[]
