@@ -9,9 +9,11 @@ class LinkNode():
 		self.name = name
 	"""
 	def __init__(self):
-		self.score = 0
 		self.name = ""
+		self.score = 0
 		self.next=None
+
+
 # 建立链表头部
 head=LinkNode()
 
@@ -20,6 +22,24 @@ head.next=None
 
 # 设置存取指针的位置
 ptr=head
-lik=LinkNode()
+
+total=int(input("学生的总数是: "))
+for _ in range(total):
+	data=LinkNode()
+	data.name=input("学生姓名: ")
+	data.score=input("学生成绩: ")
+	
+	ptr.next=data 	# 存储指针为新元素所在的位置
+
+	data.next=None	# 下一个元素的next设置为None
+	ptr=ptr.next		# 移动(更新)ptr
+
+# 遍历单项链表
+
+ptr=head	# 从链表的头部开始
+while ptr!=None:
+	print("学生姓名\t学生成绩")
+	pass
+
 
 		
