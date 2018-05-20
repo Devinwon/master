@@ -3,9 +3,6 @@
 
 """
 
-
-
-
 """
 
 # 数据组数
@@ -22,8 +19,12 @@ for _ in range(groupNum):
 		else:
 			NOTequal.add(var)
 			NOTequal.add(anothervar)
-			# 1如果一个为全集，另一个非空，返回no
-			# 2任意两个元素出现次数和大于1，返回no
+
+
+for n in NOTequal:
+	if n in equal:
+		
+
 	if len(equal)==0 or len(NOTequal)==0:
 		# 特判
 		print("Yes")

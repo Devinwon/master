@@ -36,9 +36,9 @@ string getAnswer(int n, int m, vector<int> A, vector<int> B, vector<int> E) {
         }
 
     for (int i=0;i<m;++i){
-        int setA=find(A.get(i));
-        int setB=find(B.get(i));
-        if(E.[i]==0){
+        int setA=find(A[i]);
+        int setB=find(B[i]);
+        if(E[i]==0){
             if(setA==setB)
                 return "No";
         }
