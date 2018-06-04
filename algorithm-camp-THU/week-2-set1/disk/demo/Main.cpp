@@ -17,7 +17,8 @@ void dfs(int u){
 		if(!vis[i][u]){
 			int v=((u<<1)|i)&allOne;
 			vis[i][u]=1;
-			;
+			dfs(v);
+			ans.append('0'+i);
 		}
 }
 // 本函数求解大转盘上的数，你需要把大转盘上的数按顺时针顺序返回
