@@ -25,7 +25,7 @@ void dfs(int x){
         int y=e[i].to;
         if(!vis[y]){
             vis[y]=true;
-            if(mc[y]==0)||dfs(mc[y]){
+            if(mc[y]==0||dfs(mc[y])){
                 //------3
                 mc[x]=y;
                 mc[y]=x;
