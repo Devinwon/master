@@ -11,9 +11,13 @@ bool check(long long d,int n,int m,vector<int> &a){
 		if(a[i]>d)
 			return false;
 		sum+=a[i];
-	}
+		if(sum>d){
+			sum=a[i];
+			cnt=cnt+1;
+		}
 
-	return ;
+	}
+	return cnt<=m ;
 
 }
 // 将所给数组分成连续的m份，使得数字之和最大的那一份的数字之和最小
@@ -25,7 +29,7 @@ long long getAnswer(int n, int m, vector<int> a) {
     /* 请在这里设计你的算法 */
 	long long l=1,r=0;
 	for (int i=0;i<n;++i)
-		r+=a[i]
+		r+=a[i];
 
 	while(l<=r){
 		long long mid=(l+r)>>1;
