@@ -27,7 +27,8 @@ void dfs(int x){
             vis[y]=true;
             if(mc[y]==0)||dfs(mc[y]){
                 //------3
-                ;
+                mc[x]=y;
+                mc[y]=x;
                 return true;
             }
         }
@@ -50,10 +51,11 @@ int getAnswer(int n, vector<vector<int>> board) {
     for(int i=1;i<=n;++i)
         for(int j=1;j<=n;++j)
             // ----1
-            ;
+            if (board[i-1][j-1]==1)
+                add(i,j+n);
     int ans=0;
     for(int i=1;i<=n;++i)
-        if(  //----2  ){
+        if(  mc[i] ){
             memset(vis,0,sizeof(bool)*(n*2+1));
             if(dfs(i))
                 ++ans;
