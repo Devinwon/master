@@ -4,6 +4,27 @@ using namespace std;
 // ================= 代码实现开始 =================
 
 /* 请在这里定义你需要的全局变量 */
+vector<int> seq,seqTemp;
+long long cnt;
+
+void mergeSort(int l,int r){
+    if(//1-------)
+        return ;
+    int mid=(l+r)>>1;
+    mergeSort(l,mid);
+    mergeSort(mid+1,r);
+    int p=1,q=mid+1;
+    for(int i=1;i<=r;++i){
+        if(///333)
+            seqTemp[i]=seq[p++];
+        else{
+            seqTemp[i]=seq[q++];
+            cnt+=;
+        }
+    }
+    for(int i=l;i<=r;++i)
+        seq[i]=seqTemp[i];
+}
 
 // 这个函数的功能是计算答案（即最少花费的金钱）
 // n：表示序列长度
@@ -11,6 +32,11 @@ using namespace std;
 // 返回值：最少花费的金钱（需要注意，返回值的类型为 64 位有符号整数）
 long long getAnswer(int n, vector<int> a) {
     /* 请在这里设计你的算法 */
+    seq=a;
+    seqTemp.resieze(n);
+    cnt=0;
+    mergeSort(0,n-1);
+    return cnt;
 }
 
 // ================= 代码实现结束 =================
