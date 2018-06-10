@@ -13,7 +13,7 @@ void mergeSort(int l,int r){
     int mid=(l+r)>>1;
     mergeSort(l,mid);
     mergeSort(mid+1,r);
-    int p=1,q=mid+1;
+    int p=l,q=mid+1;
     for(int i=l;i<=r;++i){
         if(q>r||p<=mid&&seq[p]<=seq[q])
             seqTemp[i]=seq[p++];
