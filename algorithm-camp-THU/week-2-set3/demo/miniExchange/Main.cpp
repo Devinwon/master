@@ -8,18 +8,18 @@ vector<int> seq,seqTemp;
 long long cnt;
 
 void mergeSort(int l,int r){
-    if(//1-------)
+    if(l==r)
         return ;
     int mid=(l+r)>>1;
     mergeSort(l,mid);
     mergeSort(mid+1,r);
     int p=1,q=mid+1;
-    for(int i=1;i<=r;++i){
-        if(///333)
+    for(int i=l;i<=r;++i){
+        if(q>r||p<=mid&&seq[p]<=seq[q])
             seqTemp[i]=seq[p++];
         else{
             seqTemp[i]=seq[q++];
-            cnt+=;
+            cnt+=mid-p+1;
         }
     }
     for(int i=l;i<=r;++i)
@@ -33,7 +33,7 @@ void mergeSort(int l,int r){
 long long getAnswer(int n, vector<int> a) {
     /* 请在这里设计你的算法 */
     seq=a;
-    seqTemp.resieze(n);
+    seqTemp.resize(n);
     cnt=0;
     mergeSort(0,n-1);
     return cnt;
