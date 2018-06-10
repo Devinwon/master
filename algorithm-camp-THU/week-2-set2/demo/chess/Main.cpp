@@ -20,7 +20,7 @@ void add(int x, int y){
     ihead[x]=cnt;
 }
 
-void dfs(int x){
+bool dfs(int x){
     for (int i=ihead[x];i;i=e[i].next){
         int y=e[i].to;
         if(!vis[y]){
@@ -41,7 +41,6 @@ void dfs(int x){
 // board：所给棋盘，对于某个位置上的数：若值为1表示可以放“车”；若值为0表示不能放“车”
 // 返回值：能放“车”的最大个数
 int getAnswer(int n, vector<vector<int>> board) {
-    /* 请在这里设计你的算法 */
     cnt=0;
     for(int i=1;i<=n*2;++i){
         ihead[i]=0;
@@ -50,7 +49,6 @@ int getAnswer(int n, vector<vector<int>> board) {
 
     for(int i=1;i<=n;++i)
         for(int j=1;j<=n;++j)
-            // ----1
             if (board[i-1][j-1]==1)
                 add(i,j+n);
     int ans=0;
