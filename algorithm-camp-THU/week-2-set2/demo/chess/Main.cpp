@@ -21,7 +21,7 @@ void add(int x, int y){
 }
 
 bool dfs(int x){
-    for (int i=ihead[x];i;i=e[i].next){
+    for (int i=ihead[x];i!=0;i=e[i].next){
         int y=e[i].to;
         if(!vis[y]){
             vis[y]=true;
@@ -40,20 +40,22 @@ bool dfs(int x){
 // n：棋盘的大小为n×n的
 // board：所给棋盘，对于某个位置上的数：若值为1表示可以放“车”；若值为0表示不能放“车”
 // 返回值：能放“车”的最大个数
-int getAnswer(int n, vector<vector<int>> board) {
+int getAnswer(int n, vector< vector<int> > board) {
+    //初始化
     cnt=0;
     for(int i=1;i<=n*2;++i){
         ihead[i]=0;
         mc[i]=0;
     }
 
+    //连边
     for(int i=1;i<=n;++i)
         for(int j=1;j<=n;++j)
             if (board[i-1][j-1]==1)
                 add(i,j+n);
     int ans=0;
     for(int i=1;i<=n;++i)
-        if(  mc[i] ){
+        if( mc[i]){
             memset(vis,0,sizeof(bool)*(n*2+1));
             if(dfs(i))
                 ++ans;
@@ -66,7 +68,7 @@ int getAnswer(int n, vector<vector<int>> board) {
 int main() {
     int n;
     scanf("%d", &n);
-    vector<vector<int>> e;
+    vector< vector<int> > e;
     for (int i = 0; i < n; ++i) {
         vector<int> t;
         for (int j = 0; j < n; ++j) {
