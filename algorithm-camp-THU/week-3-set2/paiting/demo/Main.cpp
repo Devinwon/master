@@ -17,16 +17,18 @@ int dp(int a,int b, int c,int d,int e,int last){
     if(a)
         ret+=dp(a-1,b,c,d,e,1)*(a-(last==2));
     if(b)
+        ret+=dp(a+1,b-1,c,d,e,2)*(b-(last==3));
     if(c)
+        ret+=dp(a,b+1,c-1,d,e,3)*(c-(last==4));
     if(d)
+        ret+=dp(a,b,c+1,d-1,e,4)*(d-(last==5));
     if(e)
-    return ;
+        ret+=dp(a,b,c,d+1,e-1,5)*e;
+    return f[a][b][c][d][e][last]=ret%mo  ;
 
 }
 
 int b[6];
-
-
 
 // n辆车，m种油漆，第i种油漆够涂ai辆车，同时所有油漆恰好能涂完n辆车。若任意两辆相邻的车颜色不能相同，有多少种涂油漆的方案
 // m：如题
