@@ -19,7 +19,7 @@ vector<int> getAnswer(int n, vector<int> w, vector<int> v, int q, vector<int> qV
     /* 请在这里设计你的算法 */
     for(int i=1;i<=n;++i){
         for(int V=0;V<v[i];++V)
-            d[i][v]=d[i-1][V];
+            d[i][V]=d[i-1][V];
         for(int V=v[i];V<=5000;++V)
             d[i][V]=max(d[i-1][V],d[i-1][V-v[i]]+w[i]);
         }
