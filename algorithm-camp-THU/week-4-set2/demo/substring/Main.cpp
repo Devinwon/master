@@ -28,6 +28,11 @@ int getAnswer() {
 // 动态规划
 	for(int i=1;i<=n;++i){
 		// 
+		if(p[i])
+			f[i]=f[i-1]+f[i-1]-f[p[i]-1]+mo;
+		else
+			f[i]=f[i-1]+f[i-1]+1;
+		f[i]%=mo;
 	}
 	return f[n];
 }
