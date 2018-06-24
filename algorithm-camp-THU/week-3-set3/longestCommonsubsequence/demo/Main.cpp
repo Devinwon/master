@@ -20,11 +20,11 @@ int LCS(int n, vector<int> a, vector<int> b) {
         pos[b[i]]=i;
 
     for(int i=1,i<=n;++i)
-        a[i]=         ;
+        a[i]= pos[a[i]] ;
     f[0]=0;
     for(int i=1;i<=n;++i)
-
-    return   ;
+        *lower_bound(f.begin(),f,end(),a[i])=a[i];
+    return   int(lower_bound(f.begin(),f,end(),n+1)-f.begin())-1;
 }
 
 // ================= 代码实现结束 =================
