@@ -55,8 +55,8 @@ int convex(ip *a, ip *b, int n) {
 
     //求上凸壳
     for(int i=n-2,t=m;i>=0;--i){
-            ;   //类似下凸壳
-            b[m++]=a[i];
+        for(;m>t&&((b[m-1]-b[m-2])^(a[i]-b[m-2]))>0;--m);   //类似下凸壳
+        b[m++]=a[i];
     }
     return m-1;
 }

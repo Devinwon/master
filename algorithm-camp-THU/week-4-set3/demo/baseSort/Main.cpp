@@ -33,7 +33,7 @@ u32 hashArr(u32* a, int n) {
 // 以上代码不需要解释，你只需要知道这是用于生成数据的就行了
 
 /* 请在这里定义你需要的全局变量 */
-const N=100000000;
+const int N=100000000;
 
 // a,输入中给定的数组
 // _a:
@@ -61,7 +61,7 @@ void sorting(int n, int k) {
         sum[i]+=sum[i-1];
     //求出每个位置每个值的名次
     for(int i=n-1;i>=0;--i)
-        _a[sum[a[i]&b]--]=a[i];
+        _a[sum[a[i] & b]--]=a[i];
 
     //再重复一遍上面的基数排宿,只不过这次是对_a的前16位排序,并存入a中
     memset(sum,0,sizeof(sum));
@@ -70,7 +70,7 @@ void sorting(int n, int k) {
     for(int i=1;i<B;++i)
         sum[i]+=sum[i-1];
     for(int i=n-1;i>=0;--i)
-        a[sum[(_a[i]>>m)&b]--]=_a[i];
+        a[sum[(_a[i]>>m)& b]--]=_a[i];
 }
 
 // ================= 代码实现结束 =================
