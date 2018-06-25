@@ -18,22 +18,22 @@ vector<int> match(int n, string A, int m, string B) {
 
     int j=Next[0]=-1; //j为匹配失败时跳转到的位置
     for(int i=1;i<m;++i){
-        while(   &&B[i]!B[j+1])
+        while( j>0&&B[i]!=B[j+1])
             j=Next[j];
-        if(   )
+        if(B[i]==B[j+1])
             ++j;    //当前位置匹配,++j
-        Next[i]=    ; //记录当前位的next数组
+        Next[i]= j; //记录当前位的next数组
     }
     j=-1;   //j为当前模式串匹配到的位置
 
-    std::vector<int > ans;      //这是答案,返回值
+    vector<int > ans;      //这是答案,返回值
     for(int i=0;i<n;++i){
-        while(  j>=0 &&A[i]!=B[j+1])    //如果下一位无法匹配,则用Next数组跳转
+        while( j>=0&&A[i]!=B[j+1])    //如果下一位无法匹配,则用Next数组跳转
             j=Next[j];
-        if(    )
+        if(A[i]==B[j+1])
             ++j;    //当前位置匹配,++j
         if(j==m-1)
-            ans.push_back(  );  //如果整个模式串匹配,则找到答案//
+            ans.push_back(i-m+1 );  //如果整个模式串匹配,则找到答案i-(m-1)//
     }
     return ans;
 }   

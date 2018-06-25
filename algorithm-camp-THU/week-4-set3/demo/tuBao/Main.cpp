@@ -42,6 +42,23 @@ ll operator ^ (const iv &a, const iv &b) {
 // 返回凸包元素个数
 int convex(ip *a, ip *b, int n) {
     /* 请在这里设计你的算法 */
+    //升序排序
+    sort(a,a+n);
+    // n=unique(a,a+n)-a;去重
+
+    int m=0;
+    // 求下凸
+    for(int i=0;i<n;++i){
+        for(;m>1&&((b[m-1]-b[m-2])^(a[i]-b[m-2]))>0;--m);
+            b[m++]=a[i];
+    }
+
+    //求上凸壳
+    for(int i=n-2,t=m;i>=0;--i){
+            ;   //类似下凸壳
+            b[m++]=a[i];
+    }
+    return m-1;
 }
 
 // ================= 代码实现结束 =================
