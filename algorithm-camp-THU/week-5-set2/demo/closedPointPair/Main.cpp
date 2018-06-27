@@ -39,6 +39,12 @@ lf dis(const ip &a, const ip &b) {
 // 返回值：最近的距离
 double getAnswer(int n, vector<int> X, vector<int> Y) {
     /* 请在这里设计你的算法 */
+    for(int i=0;i<n;++i)
+        a[i+1]=ip(X[i],Y[i]);
+    ans=1e100;
+    sort(a+1,a+1+n);    //必须先排序
+    solve(1,n);
+    return ans;
 }
 
 // ================= 代码实现结束 =================
