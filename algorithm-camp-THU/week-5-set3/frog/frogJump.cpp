@@ -17,7 +17,7 @@ int main(){
 
     int ans=0;
     for(int round=0;round<2;++round){
-        sort(a+1;a+n+1);
+        sort(a+1,a+n+1);
         for(int i=1;i<=n;++i){
             dp[i][i]=a[i].second;
             for(int j=1;j<i;++j){
@@ -29,7 +29,7 @@ int main(){
         for(int i=1;i<=n;++i)
             a[i].first=-a[i].first;
     }
-    print("%d\n",ans);
+    printf("%d\n",ans);
     return 0;
 }
 
