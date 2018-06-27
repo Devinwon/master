@@ -34,6 +34,12 @@ bool getAnswer() {
         for(int i=0;i<(int)e[x].size();++i){
             int y=e[x][i];
             //blank----1
+            --in[y];
+            if(in[y]==0){
+                if(z!=0)
+                    return 0;
+                z=y;
+            }
         }
         x=z;
     }

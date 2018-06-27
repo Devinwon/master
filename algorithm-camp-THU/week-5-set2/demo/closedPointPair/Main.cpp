@@ -11,10 +11,10 @@ const int N = 300005;
 // 用于存储一个二维平面上的点
 struct ip {
     int x, y;
-    
+
     // 构造函数
     ip(int x = 0, int y = 0) : x(x), y(y) { }
-    
+
      // 先比较x轴，再比较y轴
     bool operator < (const ip &a) const {
         return x == a.x ? y < a.y : x < a.x;
@@ -41,6 +41,10 @@ void solve(int l,int r){
     // 边界情况
     if(r-l<=1){
         // blank ---1,只有一个点或只有两个点,如何更新答案
+        if(a[l].y>a[r].y)
+            swap(a[l],a[r]);
+        if(l!=r)
+            ans=min(ans,dis(a[l],a[r]));
         return ;
     }
 
@@ -54,9 +58,9 @@ void solve(int l,int r){
 
     // 对y轴进行归并排序,并且去掉,与中间点mid的距离(x轴),比答案要大的点
     int cnt=0;
-    for(int i=l;j=mid+1;i<=mid||j<=r;){
-        for(;i<=mid&&md-a[i].x>ans;;++i);
-        for(;j<=r&&a[j].x-md>ans;++j);
+    for(int i=l,j=mid+1;i<=mid||j<=r;){
+        for(;i<=mid&&md-a[i].x>=ans;++i);
+        for(;j<=r&&a[j].x-md>=ans;++j);
         if(i<=mid&&(j>r||a[i].y<a[j].y))
             b[cnt++]=a[i++];
         else
@@ -70,6 +74,12 @@ void solve(int l,int r){
     // 对y轴进行归并排序,不去掉任何点
     cnt=0;
     // blank---2
+    for(int i=l,j=mid+1;i<=mid||j<=r;){
+        if(i<=mid&&(j>r||a[i].y<a[j].y))
+            b[cnt++]=a[i++];
+        else
+            b[cnt++]=a[j++];
+    }
     memcpy(a+l,b,sizeof(ip)*cnt);
 }
 
