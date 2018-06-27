@@ -24,6 +24,7 @@ int main(){
                 dp[i][j]=0;
                 for(int k=j;k&&2*a[j].first<=a[i].first+a[k].first;--k)
                     dp[i][j]=max(dp[i][j],dp[j][k]);
+                ans=max(ans,(dp[i][j]+=a[i].second));
             }
         }
         for(int i=1;i<=n;++i)
