@@ -6,7 +6,9 @@ using namespace std;
 /* 请在这里定义你需要的全局变量 */
 const int N=5005;
 
+//f:动态规划用的数组,f[i]表示容量为i的背包最大价值
 int f[N];
+
 
 // n：物品个数
 // V：背包的体积
@@ -17,11 +19,12 @@ int f[N];
 int getAnswer(int n, int V, vector<int> t, vector<int> w, vector<int> v) {
     /* 请在这里设计你的算法 */
     for(int i=0;i<n;++i)
-        if(t[i]==0)
-            for()
+        if(t[i]==0) //01背包,倒序枚举
+            for(int j=V;j>=v[i]; --j)
+                f[j]=max(f[j],f[j-v[i]]+w[i]);            
+        else        //完全背包,顺序枚举
+            for(int j=v[i];j<=V; ++j)
                 f[j]=max(f[j],f[j-v[i]]+w[i]);
-        else
-            ;
     return f[V];
 }
 
