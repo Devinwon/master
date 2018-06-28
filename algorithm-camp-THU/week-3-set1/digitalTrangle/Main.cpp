@@ -18,20 +18,20 @@ int getAnswer(int n, vector< vector<int> > a) {
         dp[i].resize(i+2);
     for(int i=1;i<=n;++i)
         for(int j=1;j<=i;++j)
-            dp[i][j]=;
-}
+            dp[i][j]=max(dp[i-1][j-1],dp[i-1][j])+a[i][j] ;
 
-int ans=0;
-for(int i=1;i<=n;++i)
-    ans=max(ans,dp[n][i]);
-return ans;
+
+    int ans=0;
+    for(int i=1;i<=n;++i)
+        ans=max(ans,dp[n][i]);//求最大数字之和
+    return ans;
 }
 
 // ================= 代码实现结束 =================
 
 int main() {
     int n;
-    vector<vector<int>> a;
+    vector< vector<int> > a;
     scanf("%d", &n);
     a.resize(n + 1);
     for (int i = 0; i <= n; ++i)
