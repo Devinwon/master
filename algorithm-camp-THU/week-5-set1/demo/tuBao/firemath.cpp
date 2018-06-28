@@ -1,3 +1,4 @@
+// passed 50%
 #include<cstdio>
 #include<cstring>
 #include<algorithm>

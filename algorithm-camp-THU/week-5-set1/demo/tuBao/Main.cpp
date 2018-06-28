@@ -49,13 +49,13 @@ int convex(ip *a, ip *b, int n) {
     int m=0;
     // 求下凸
     for(int i=0;i<n;++i){
-        for(;m>1&&((b[m-1]-b[m-2])^(a[i]-b[m-2]))>0;--m);
+        for(;m>1&&((b[m-1]-b[m-2])^(a[i]-b[m-2]))<0;--m);
             b[m++]=a[i];
     }
 
     //求上凸壳
     for(int i=n-2,t=m;i>=0;--i){
-        for(;m>t&&((b[m-1]-b[m-2])^(a[i]-b[m-2]))>0;--m);   //类似下凸壳
+        for(;m>t&&((b[m-1]-b[m-2])^(a[i]-b[m-2]))<0;--m);   //类似下凸壳
         b[m++]=a[i];
     }
     return m-1;

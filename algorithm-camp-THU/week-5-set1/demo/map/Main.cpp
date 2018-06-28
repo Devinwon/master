@@ -51,7 +51,7 @@ bool getAnswer() {
 int main() {
     int T;
     for (scanf("%d", &T); T--; ) {
-        int n, m;
+        //int n, m;好坑呀
         scanf("%d%d", &n, &m);
         for (int i = 1; i <= n; ++i) {
             in[i] = 0;
