@@ -2,7 +2,7 @@
 using namespace std;
 
 // ================= 代码实现开始 =================
-
+// done 100% passed
 /* 请在这里定义你需要的全局变量 */
 typedef pair<int,int> pii;
 #define fi first
