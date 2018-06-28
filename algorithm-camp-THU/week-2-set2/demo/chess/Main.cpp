@@ -5,21 +5,33 @@ using namespace std;
 
 /* 请在这里定义你需要的全局变量 */
 const int N=505*2,M=N*N;
+//邻接表结构
 struct E
 {
+    // next:下一条邻接边
+    // to:本条边所指向的终点
     int next,to;
 } e[M];
 
+// ihead 邻接表头
+// cnt 邻接表大小
+// mc 表示每个点匹配到另外一个点
+// vis Y集合元素是否被访问过
 int cnt,ihead[N],mc[N];
 bool vis[N];
 
+//邻接表连边,表示连一条x到y的有向边
+// x;起点
+// y:终点
 void add(int x, int y){
     ++cnt;
     e[cnt].next=ihead[x];
     e[cnt].to=y;
     ihead[x]=cnt;
 }
-
+//匈牙利算法
+// x:X集上的点,从当前点出发找增广路
+//返回值,若找到增广路返回true,否则返回false
 bool dfs(int x){
     for (int i=ihead[x];i!=0;i=e[i].next){
         int y=e[i].to;
@@ -55,7 +67,7 @@ int getAnswer(int n, vector< vector<int> > board) {
                 add(i,j+n);
     int ans=0;
     for(int i=1;i<=n;++i)
-        if( mc[i]){
+        if( !mc[i]){
             memset(vis,0,sizeof(bool)*(n*2+1));
             if(dfs(i))
                 ++ans;
