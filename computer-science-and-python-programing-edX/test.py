@@ -1,5 +1,7 @@
 '''
-根据 a,b 的假设三种（1，0），（0，1），（1，1）
+
+'''
+#根据 a,b 的假设三种（1，0），（0，1），（1，1）
 '''
 for a,b in ((1,0),(0,1),(1,1)):
 
@@ -23,4 +25,25 @@ for a,b in ((1,0),(0,1),(1,1)):
             pass
         else:
             break
+
+'''
+'''
+class Clock(object):
+    def __init__(self, time):
+        self.time = time
+    def print_time(self):
+        time = '6:30'
+        print(self.time)
+
+clock = Clock('5:30')
+clock.print_time()
+'''
+class Clock(object):
+    def __init__(self, time):
+        self.time = time
+    def print_time(self, time):
+        print(time)
+
+clock = Clock('5:30')
+clock.print_time('10:30')
 
