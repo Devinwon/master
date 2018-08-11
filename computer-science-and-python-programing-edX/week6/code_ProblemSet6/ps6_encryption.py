@@ -81,7 +81,7 @@ def getStoryString():
     Returns a story in encrypted text.
     """
     return open("story.txt", "r").read()
-    
+
 
 
 # (end of helper code)
@@ -142,7 +142,14 @@ def applyShift(text, shift):
     """
     ### TODO.
     ### HINT: This is a wrapper function.
-    return "Not yet implemented." # Remove this comment when you code the function
+    # return "Not yet implemented." # Remove this comment when you code the function
+    afterText=""
+    for c in text:
+        if c.isalpha():
+            afterText+=buildCoder(shift)[c]
+        else:
+            afterText+=c 
+    return afterText    
 
 #
 # Problem 2: Decryption
