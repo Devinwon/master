@@ -81,6 +81,7 @@ def getStoryString():
     Returns a story in encrypted text.
     """
     return open("story.txt", "r").read()
+    
 
 
 # (end of helper code)
@@ -119,7 +120,14 @@ def applyCoder(text, coder):
     returns: text after mapping coder chars to original text
     """
     ### TODO.
-    return "Not yet implemented." # Remove this comment when you code the function
+    # return "Not yet implemented." # Remove this comment when you code the function
+    finalText=""
+    for v in text:
+        if v.isalpha():
+            finalText+=coder[v]
+        else:
+            finalText+=v
+    return finalText
 
 def applyShift(text, shift):
     """
