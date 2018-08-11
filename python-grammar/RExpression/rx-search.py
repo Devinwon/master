@@ -13,6 +13,7 @@ print(type(rel))
 print(rel)
 print(type(rel.group()))
 print(rel.group())
+print(len(rel.group()))
 
 
 

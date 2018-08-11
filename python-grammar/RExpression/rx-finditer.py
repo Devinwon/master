@@ -4,13 +4,17 @@ import re
 return all the matched  objects by iterator
 rel    type is iterator  
 '''
-s='6526526jdfjkshfjshccnuccuccnu'
-reg="ccnu"
+s='azcbobobebobobgghakl'
+reg="b(ob)+"
 com=re.compile(reg)
 rel=re.finditer(com,s)
-print(type(rel))
-print(rel)
+# print(type(rel))
+# print(rel)
+cnt=0
 for _ in rel:
-	print(_.group())
-
+	if len(_.group())==3:
+		cnt+=1
+	else:
+		cnt+=(len(_.group())-1)//2
+print(cnt)
 
