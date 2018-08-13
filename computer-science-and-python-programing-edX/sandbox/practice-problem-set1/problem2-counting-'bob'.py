@@ -1,4 +1,9 @@
 import re
+
+"""
+finditer可以迭代匹配,其他的不能迭代匹配
+"""
+
 reg="b(ob)+"
 com=re.compile(reg)
 rel=re.finditer(com,s)
