@@ -1,7 +1,5 @@
 """
-f(x)=1/2(a/x+x)
-
-This code has a bug in it. 
+This function definition has a bug in it. 
 You can fix this by correcting exactly one line of the definition. 
 Please do so in the box below.
 """
@@ -22,15 +20,9 @@ def fixedPoint(f, epsilon):
     """
     guess = 1.0
     for i in range(100):
-        if abs(f(guess) - guess) < epsilon:
+        # if f(guess) - guess < epsilon:        # bug 
+        if abs(f(guess) - guess) < epsilon:     # corrected
             return guess
         else:
             guess = f(guess)
     return guess
-
-
-def sqrt(a):
-    def tryit(x):
-        return 0.5 * (a/x + x)
-    return fixedPoint(tryit(a), 0.0001)
-
