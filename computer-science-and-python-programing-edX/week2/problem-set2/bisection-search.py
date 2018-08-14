@@ -1,3 +1,7 @@
+# coding:UTF-8
+balance = 999999
+annualInterestRate = 0.18
+
 monthlyRate=annualInterestRate/12.0
 lo=balance/12.0
 hi=(balance*(1+monthlyRate)**12)/12.0

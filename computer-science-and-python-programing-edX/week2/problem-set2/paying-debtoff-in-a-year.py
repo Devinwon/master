@@ -1,3 +1,4 @@
+# coding:UTF-8
 balance=3926
 annualInterestRate=0.2
 
@@ -9,7 +10,7 @@ while True:
 		unpaidBlance=mybalance-payment    #欠款
 		interest=unpaidBlance*monInterestRate	#利息
 		mybalance=unpaidBlance+interest #更新欠款
-	#一年后,比较欠款
+		#一年后,比较欠款
 		# print("unpaidBlance",unpaidBlance)
 
 	if unpaidBlance<=0:
@@ -17,5 +18,5 @@ while True:
 	else:
 		payment+=10
 
-print(payment)
+print "Lowest Payment: {}".format(payment)
 
