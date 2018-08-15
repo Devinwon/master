@@ -1,3 +1,4 @@
+# coding:utf-8
 # 6.00x Problem Set 6
 #
 # Part 1 - HAIL CAESAR!
@@ -162,7 +163,21 @@ def findBestShift(wordList, text):
     returns: 0 <= int < 26
     """
     ### TODO
-    return "Not yet implemented." # Remove this comment when you code the function
+    # return "Not yet implemented." # Remove this comment when you code the function
+    key,shift=0,0
+    maxValid=0 #统计解密后能识别的单词数目
+    while shift<26:
+        counting=0
+        txtafter=applyShift(text,shift)
+        txtafter=txtafter.split()
+        for w in txtafter:
+            if isWord(wordList, w):
+                counting+=1
+        if counting>maxValid:
+            maxValid=counting                
+            key=shift
+        shift+=1
+    return key    
 
 def decryptStory():
     """
