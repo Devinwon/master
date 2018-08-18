@@ -1,3 +1,4 @@
+# coding:utf-8
 # 6.00.1x Problem Set 7
 # RSS Feed Filter
 
@@ -90,7 +91,41 @@ class Trigger(object):
 
 # TODO: WordTrigger
 
+class WordTrigger(Trigger):
+    def __init__(self,word):
+        self.word=word
+
+    def getWord(self):
+        return self.word
+            
+    def isWordIn(self,text):
+        def processPunctuation():
+            punctuation=string.punctuation
+            length=len(text)
+            # 将标号全部换成了空格" "
+            for inx in range(length):
+                if text[inx].isalpha():
+                    text[inx]=text[inx].lower() 
+                elif text[inx] in punctuation:
+                    text[inx]=" "
+
+            text=text.split()
+            if self.getWord.lower() in text:
+                return True
+            else:
+                return False
+        return processPunctuation()
+
+
 # TODO: TitleTrigger
+class TitleTrigger(WordTrigger):
+
+
+
+
+
+
+
 # TODO: SubjectTrigger
 # TODO: SummaryTrigger
 
