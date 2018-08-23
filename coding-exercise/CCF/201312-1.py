@@ -20,6 +20,11 @@
 样例输出
 
 10
+
+1:对数据进行基本的处理
+2:将数据结构改为集合,去掉重复元素并排序,然后集合中统计每个元素的出现系数,
+	分别使用变量进行保存,以便进行比较,多个取最小的,所以不包括=情况(已经排序)
+
 """
 Numcount=int(input().strip())
 numlst=list(map(int,input().strip().split()))
@@ -33,7 +38,7 @@ num=numset[0]
 
 for v in numset[1:]:
 	t=numlst.count(v)
-	if t>cnt:
+	if t>cnt:			#已近排序了,只存储最大的即可
 		cnt=t
 		num=v
 print(num)
