@@ -20,8 +20,8 @@ while n>1:
 			# peoplelst已经改变了,不能对应原来的索引
 			peoplelst.remove(peoplelstbak[inx-start-1])
 			n-=1
-	# print('每轮循环完后,数据',peoplelst)
-	# print('每轮循环完后,数据bak',peoplelstbak)
+	print('每轮循环完后,数据',peoplelst)
+	print('每轮循环完后,数据bak',peoplelstbak)
 	start+=len(peoplelstbak)
 	# print('start,n',start,n)
 print(peoplelst[0])
