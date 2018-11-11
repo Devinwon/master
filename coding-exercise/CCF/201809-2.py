@@ -27,3 +27,23 @@
 数据规模和约定
 　　对于所有的评测用例，1 ≤ n ≤ 2000, ai < bi < ai+1，ci < di < ci+1,对于所有的i(1 ≤ i ≤ n)有，1 ≤ ai, bi, ci, di ≤ 1000000。
 """
+n=int(input().strip())
+chatTime=0
+Htime=[]
+Wtime=[]
+for i in range(n):
+	st,sp=list(map(int,input().strip().split()))
+	tset=set([v for v in range(st,sp+1)])
+	Htime.append(tset)
+
+for i in range(n):
+	st,sp=list(map(int,input().strip().split()))
+	tset=set([v for v in range(st,sp+1)])
+	Wtime.append(tset)
+for i in range(n):
+	for j in range(n):
+		tempset=Htime[i]&Wtime[j]
+		if len(tempset)>1:
+			chatTime+=len(tempset)-1
+print(chatTime)
+
