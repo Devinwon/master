@@ -26,6 +26,12 @@
 3
 数据规模和约定
 　　对于所有的评测用例，1 ≤ n ≤ 2000, ai < bi < ai+1，ci < di < ci+1,对于所有的i(1 ≤ i ≤ n)有，1 ≤ ai, bi, ci, di ≤ 1000000。
+
+n,时间段的数量，也表示菜的数量，这里忽略
+主要是求时间段的交集和
+chatTime=0
+[{1, 2, 3}, {5, 6}, {9, 10, 11, 12, 13}, {14, 15}]
+[{2, 3, 4}, {5, 6, 7}, {10, 11}, {13, 14}]
 """
 n=int(input().strip())
 chatTime=0
@@ -40,6 +46,7 @@ for i in range(n):
 	st,sp=list(map(int,input().strip().split()))
 	tset=set([v for v in range(st,sp+1)])
 	Wtime.append(tset)
+	
 for i in range(n):
 	for j in range(n):
 		tempset=Htime[i]&Wtime[j]
