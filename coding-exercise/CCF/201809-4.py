@@ -24,3 +24,25 @@
 　　对于所有评测用例，2<=n<=300，第二天每个商店的菜价为不超过100的正整数。
 　　请注意，以上都是给的第二天菜价的范围，第一天菜价可能会超过此范围。
 """
+n=int(input().strip())
+D1price=[0 for _ in range(n)]
+D2price=list(map(int,input().strip().split()))
+
+D1price[0]=D2price[0]
+D1price[1]=D2price[0]
+# get D1price by D2price
+# 对D2进行遍历
+for i in range(1,n-1):
+	temp3=D2price[i]*3
+	temp4=D2price[i]*4
+	D1price[i+1]=temp3-(D1price[i-1]+D1price[i])
+	while D1price[i+1]<=0:
+		temp3+=1
+		D1price[i+1]=temp3-(D1price[i-1]+D1price[i])
+
+# 验证最后一项
+D1price[-1]=max(D2price[-1]*2-D1price[-2],D1price[-1])
+
+for inx in range(n-1):
+	print(D1price[inx],'',end='')
+print(D1price[-1])
