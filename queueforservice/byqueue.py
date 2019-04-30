@@ -14,7 +14,7 @@ from cls.queue import Queue
 from time import strftime
 import os
 
-signleTake=50
+singleTake=50
 queueforMeal=Queue()
 cmd='start'
 
@@ -23,7 +23,7 @@ cmd='start'
 当前最后的排队编号
 '''
 def getPresentNO():
-	return int(queueforMeal.preitem())
+	return int(queueforMeal.fstitem())
 
 
 '''
@@ -45,7 +45,7 @@ def guestInfo(guestNO):
 	print('---------------------------------------')
 	print('你的排队号码:%d'%guestNO)
 	print("你的前面有:%d人"%(queueforMeal.size()-1))
-	timetoWait=(queueforMeal.size()-1)*signleTake
+	timetoWait=(queueforMeal.size()-1)*singleTake
 	if timetoWait<60:
 		print("大约还需要等待:%d分钟"%timetoWait)
 	else :

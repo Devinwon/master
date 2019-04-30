@@ -1,5 +1,4 @@
 class Stack():
-	items=[]
 	def __int__(self):
 		self.items=[]
 
