@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>semantic ui grid inner style</title>
+	<link rel="stylesheet" href="css/semantic.min.css">
+	<script type="text/javascript" link="js/semantic-min.js"></script>
+</head>
+<body>
+<!-- inner grid -->
+<div class="ui container" >
+	<div class="ui three column grid" style="margin-bottom:10px">
+			<div class="column" style="background-color:red">1</div>
+			<div class="column" style="background-color:pink">
+					<div class="ui two column grid ">
+						<div class="column" style="background-color:green">inner2-1</div>
+						<div class="column" style="background-color:blue">inner2-2</div>
+					</div>
+			</div>
+			<div class="column" style="background-color:orange">3</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,4 +1,6 @@
 """
+运行超时
+
 问题描述
 　　小H和小W来到了一条街上，两人分开买菜，他们买菜的过程可以描述为，
 	去店里买一些菜然后去旁边的一个广场把菜装上车，两人都要买n种菜，所以也都要装n次车。具体的，
@@ -32,7 +34,7 @@ n,时间段的数量，也表示菜的数量，这里忽略
 chatTime=0
 [{1, 2, 3}, {5, 6}, {9, 10, 11, 12, 13}, {14, 15}]
 [{2, 3, 4}, {5, 6, 7}, {10, 11}, {13, 14}]
-"""
+
 n=int(input().strip())
 chatTime=0
 Htime=[]
@@ -46,11 +48,38 @@ for i in range(n):
 	st,sp=list(map(int,input().strip().split()))
 	tset=set([v for v in range(st,sp+1)])
 	Wtime.append(tset)
-	
+
 for i in range(n):
 	for j in range(n):
 		tempset=Htime[i]&Wtime[j]
 		if len(tempset)>1:
 			chatTime+=len(tempset)-1
+		elif min(Wtime[j])>=max(Htime[i]):
+			break
 print(chatTime)
+"""
+
+n=int(input().strip())
+chatTime=0
+Htime=[]
+Wtime=[]
+for i in range(n):
+	st,sp=list(map(int,input().strip().split()))
+	# tset=set([v for v in range(st,sp+1)])
+	Htime.append([st,sp])
+
+for i in range(n):
+	st,sp=list(map(int,input().strip().split()))
+	# tset=set([v for v in range(st,sp+1)])
+	Wtime.append([st,sp])
+
+for i in range(n):
+	for j in range(n):
+		if Htime[i][0]<= Wtime[j][0]<Htime[i][1]:
+			chatTime+=min(Wtime[j][1],Htime[i][1])-Wtime[j][0]
+		elif Wtime[j][0]>=Htime[i][1]:
+			break
+
+print(chatTime)
+
 

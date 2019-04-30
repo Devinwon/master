@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>semantic ui message</title>
+	<script type="text/javascript" link="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/semantic.min.css">
+	<script type="text/javascript" link="js/semantic-min.js"></script>
+	<script>
+        $(function () {
+           $("#modal").on("click",function () {
+               $(".ui .modal").modal("show");
+           }) 
+        })
+  </script>
+</head>
+<body style="padding:20px">
+<!-- ui menu vertical-->
+<div class="ui container">
+	<button class="ui green button">点击</button>
+    <!--定义一个模态窗口-->
+    <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">模态窗口标题</div>
+        <div class="content">
+          <p>这里是模态窗口的主体内容。</p>
+        </div>
+        <div class="actions">
+          <button class="ui green button">提交</button>
+          <button class="ui green button">取消</button>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
