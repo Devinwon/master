@@ -14,7 +14,7 @@ from cls.queue import Queue
 from time import strftime
 import os
 
-singleTake=50
+singleTake=5
 queueforMeal=Queue()
 cmd='start'
 
